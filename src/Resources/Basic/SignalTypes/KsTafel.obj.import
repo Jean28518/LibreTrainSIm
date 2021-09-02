@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/KsTafel.obj-8239f679fd20432d83743af4e3a4f1bd.mesh"
+
+[deps]
+
+files=[ "res://.import/KsTafel.obj-8239f679fd20432d83743af4e3a4f1bd.mesh" ]
+
+source_file="res://Resources/Basic/SignalTypes/KsTafel.obj"
+dest_files=[ "res://.import/KsTafel.obj-8239f679fd20432d83743af4e3a4f1bd.mesh", "res://.import/KsTafel.obj-8239f679fd20432d83743af4e3a4f1bd.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

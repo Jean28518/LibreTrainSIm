@@ -21,6 +21,15 @@ func _ready():
 	texture = $Viewport2.get_texture()
 	$Screen2.material_override = $Screen2.material_override.duplicate(true)
 	$Screen2.material_override.emission_texture = texture
+	
+	match signal_logic.signal_type:
+		signal_logic.SignalType.MAIN:
+			$HpTafel.visible = true
+		signal_logic.SignalType.PRESIGNAL:
+			$VoTafel.visible = true
+		signal_logic.SignalType.COMBINED:
+			$HpTafel.visible = true
+			$KsTafel.visible = true
 
 
 func blink():

@@ -1,14 +1,17 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://addons/Libre_Train_Sim_Editor/Data/Misc/Oswald-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Resources/Basic/Textures/KS-Signal.png" type="Texture" id=2]
-[ext_resource path="res://Resources/Basic/SignalTypes/Default/KS-Sig.obj" type="ArrayMesh" id=3]
-[ext_resource path="res://Resources/Basic/Textures/Black.png" type="Texture" id=5]
-[ext_resource path="res://Resources/Basic/SignalTypes/Default/ScriptingDefault.gd" type="Script" id=6]
+[ext_resource path="res://Resources/Basic/SignalTypes/Ks/KS-Sig.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://Resources/Basic/SignalTypes/Ks/ScriptingKs.gd" type="Script" id=3]
+[ext_resource path="res://Resources/Basic/Textures/Black.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Basic/Textures/KS-Signal.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Basic/SignalTypes/HpTafel.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://Resources/Basic/SignalTypes/KsTafel.obj" type="ArrayMesh" id=7]
+[ext_resource path="res://Resources/Basic/SignalTypes/VoTafel.obj" type="ArrayMesh" id=8]
 
 [sub_resource type="SpatialMaterial" id=1]
 params_cull_mode = 2
-albedo_texture = ExtResource( 2 )
+albedo_texture = ExtResource( 5 )
 
 [sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 1, 0.00392157, 0.00392157, 1 )
@@ -109,12 +112,30 @@ emission_on_uv2 = false
 emission_texture = SubResource( 14 )
 
 [node name="VisualInstance" type="Spatial"]
-script = ExtResource( 6 )
+script = ExtResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.67658 )
 material_override = SubResource( 1 )
-mesh = ExtResource( 3 )
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="HpTafel" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.677 )
+visible = false
+mesh = ExtResource( 6 )
+material/0 = null
+
+[node name="KsTafel" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.677 )
+visible = false
+mesh = ExtResource( 7 )
+material/0 = null
+
+[node name="VoTafel" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.677 )
+visible = false
+mesh = ExtResource( 8 )
 material/0 = null
 
 [node name="Red" type="MeshInstance" parent="."]
@@ -167,7 +188,7 @@ z_as_relative = false
 
 [node name="Sprite" type="Sprite" parent="Viewport/Node2D"]
 position = Vector2( 327.093, 387.386 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="Viewport/Node2D"]
 modulate = Color( 1, 0.470588, 0, 1 )
@@ -190,7 +211,7 @@ z_as_relative = false
 
 [node name="Sprite" type="Sprite" parent="Viewport2/Node2D"]
 position = Vector2( 327.093, 387.386 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="Viewport2/Node2D"]
 margin_top = -124.614

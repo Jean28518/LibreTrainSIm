@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://addons/Libre_Train_Sim_Editor/Data/Misc/Oswald-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Resources/Basic/SignalTypes/Ks/KS-Sig.obj" type="ArrayMesh" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://Resources/Basic/SignalTypes/HpTafel.obj" type="ArrayMesh" id=6]
 [ext_resource path="res://Resources/Basic/SignalTypes/KsTafel.obj" type="ArrayMesh" id=7]
 [ext_resource path="res://Resources/Basic/SignalTypes/VoTafel.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://Resources/Basic/Materials/hp_tafel.tres" type="Material" id=9]
+[ext_resource path="res://Resources/Basic/Materials/ks_tafel.tres" type="Material" id=10]
+[ext_resource path="res://Resources/Basic/Materials/vo_tafel.tres" type="Material" id=11]
 
 [sub_resource type="SpatialMaterial" id=1]
 params_cull_mode = 2
@@ -121,22 +124,20 @@ mesh = ExtResource( 2 )
 material/0 = null
 
 [node name="HpTafel" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.677 )
-visible = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.8, 0, 0, 1.74491 )
 mesh = ExtResource( 6 )
-material/0 = null
+material/0 = ExtResource( 9 )
 
 [node name="KsTafel" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.677 )
-visible = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.8, 0, 0, 1.745 )
 mesh = ExtResource( 7 )
-material/0 = null
+material/0 = ExtResource( 10 )
 
 [node name="VoTafel" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.677 )
 visible = false
 mesh = ExtResource( 8 )
-material/0 = null
+material/0 = ExtResource( 11 )
 
 [node name="Red" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0203973, 4.27763, 1.71823 )

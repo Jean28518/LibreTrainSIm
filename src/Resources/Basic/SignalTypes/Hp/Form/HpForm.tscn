@@ -1,0 +1,488 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://Resources/Basic/SignalTypes/Hp/Form/licht1.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://Resources/Basic/SignalTypes/Hp/Form/flügel1.mesh" type="ArrayMesh" id=2]
+[ext_resource path="res://Resources/Basic/SignalTypes/Hp/Form/flügel2.mesh" type="ArrayMesh" id=3]
+[ext_resource path="res://Resources/Basic/SignalTypes/Hp/Form/licht2.mesh" type="ArrayMesh" id=4]
+[ext_resource path="res://Resources/Basic/SignalTypes/Hp/Form/ScriptingHp.gd" type="Script" id=7]
+[ext_resource path="res://Resources/Basic/SignalTypes/Hp/Form/signalmast.mesh" type="ArrayMesh" id=12]
+[ext_resource path="res://Resources/Basic/SignalTypes/HpTafel.obj" type="ArrayMesh" id=14]
+[ext_resource path="res://Resources/Basic/Materials/hp_tafel.tres" type="Material" id=19]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 1, 0.00392157, 0.00392157, 1 )
+emission_enabled = true
+emission = Color( 1, 0, 0, 1 )
+emission_energy = 16.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=2]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.992157, 0.0941176, 0.027451, 1 )
+emission_enabled = true
+emission = Color( 1, 0, 0, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+distance_fade_mode = 1
+distance_fade_min_distance = 70.0
+distance_fade_max_distance = 200.0
+
+[sub_resource type="SphereMesh" id=4]
+radius = 0.3
+height = 0.6
+radial_segments = 6
+rings = 3
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.00392157, 1, 0.0196078, 1 )
+emission_enabled = true
+emission = Color( 0.196078, 1, 0, 1 )
+emission_energy = 1.87
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.0588235, 0.992157, 0.027451, 1 )
+emission_enabled = true
+emission = Color( 0, 1, 0.0392157, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+distance_fade_mode = 1
+distance_fade_min_distance = 70.0
+distance_fade_max_distance = 200.0
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 1, 0.658824, 0.00392157, 1 )
+emission_enabled = true
+emission = Color( 1, 0.513726, 0, 1 )
+emission_energy = 1.87
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=8]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_color = Color( 0.992157, 0.658824, 0.027451, 1 )
+emission_enabled = true
+emission = Color( 1, 0.843137, 0, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+distance_fade_mode = 1
+distance_fade_min_distance = 70.0
+distance_fade_max_distance = 200.0
+
+[sub_resource type="SphereMesh" id=10]
+radius = 0.3
+height = 0.6
+radial_segments = 6
+rings = 3
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "Hp0"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "Hp1"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "Hp2"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+xfade_time = 1.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+xfade_time = 1.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+xfade_time = 1.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+xfade_time = 1.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+xfade_time = 1.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+xfade_time = 1.0
+
+[sub_resource type="AnimationNodeStateMachine" id=20]
+states/Hp0/node = SubResource( 11 )
+states/Hp0/position = Vector2( 346, 88 )
+states/Hp1/node = SubResource( 12 )
+states/Hp1/position = Vector2( 578, 88 )
+states/Hp2/node = SubResource( 13 )
+states/Hp2/position = Vector2( 441, 219 )
+transitions = [ "Hp0", "Hp1", SubResource( 14 ), "Hp1", "Hp2", SubResource( 15 ), "Hp2", "Hp0", SubResource( 16 ), "Hp1", "Hp0", SubResource( 17 ), "Hp0", "Hp2", SubResource( 18 ), "Hp2", "Hp1", SubResource( 19 ) ]
+start_node = "Hp0"
+graph_offset = Vector2( 93, -12 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=21]
+
+[sub_resource type="Animation" id=22]
+resource_name = "Hp0"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Model/flügel1:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Model/flügel2:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -90, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Model/licht1:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 30, 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Model/licht2:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 30, 0, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Model/licht1/Red:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Model/licht1/Green:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Model/licht2/Orange:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "Hp1"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Model/flügel1:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -45, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Model/flügel2:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -90, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Model/licht1:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -30, 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Model/licht2:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 30, 0, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Model/licht1/Green:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Model/licht2/Orange:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Model/licht1/Red:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "Hp2"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Model/flügel1:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -45, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Model/flügel2:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -45, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Model/licht1:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -30, 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Model/licht2:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -30, 0, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Model/licht2/Orange:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Model/licht1/Green:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Model/licht1/Red:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[node name="VisualInstance" type="Spatial"]
+script = ExtResource( 7 )
+
+[node name="Model" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.667 )
+
+[node name="signalmast" type="MeshInstance" parent="Model"]
+mesh = ExtResource( 12 )
+material/0 = null
+
+[node name="HpTafel" type="MeshInstance" parent="Model/signalmast"]
+transform = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 1, 0, -2.00106, 0 )
+mesh = ExtResource( 14 )
+material/0 = ExtResource( 19 )
+
+[node name="flügel1" type="MeshInstance" parent="Model"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0702728, 6.25972, 0.305179 )
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="flügel2" type="MeshInstance" parent="Model"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0702728, 4.72595, 0.307229 )
+mesh = ExtResource( 3 )
+material/0 = null
+
+[node name="licht1" type="MeshInstance" parent="Model"]
+transform = Transform( 1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0.0879787, 6.0226, 0.461497 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Red2" type="MeshInstance" parent="Model/licht1"]
+transform = Transform( -1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, 0.0210687, 0.0893674, 0.107515 )
+material_override = SubResource( 1 )
+cast_shadow = 0
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="Model/licht1/Red2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+material_override = SubResource( 3 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="Green" type="MeshInstance" parent="Model/licht1"]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.0910899, -0.0818944, 0.108706 )
+visible = false
+material_override = SubResource( 5 )
+cast_shadow = 0
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="Model/licht1/Green"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+material_override = SubResource( 6 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="Red" type="MeshInstance" parent="Model/licht1"]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.0895206, 0.0893674, 0.107515 )
+material_override = SubResource( 1 )
+cast_shadow = 0
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="Model/licht1/Red"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+material_override = SubResource( 3 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="licht2" type="MeshInstance" parent="Model"]
+transform = Transform( 1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0.0879787, 4.45312, 0.462626 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="Orange" type="MeshInstance" parent="Model/licht2"]
+transform = Transform( 1.5, 8.52651e-14, 4.26326e-14, -8.52651e-14, 1.5, 0, -4.26326e-14, -2.42338e-27, 1.5, -0.0919357, -0.0829387, 0.109502 )
+visible = false
+material_override = SubResource( 7 )
+cast_shadow = 0
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="Model/licht2/Orange"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+material_override = SubResource( 9 )
+mesh = SubResource( 10 )
+material/0 = null
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 20 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 21 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Hp0 = SubResource( 22 )
+anims/Hp1 = SubResource( 23 )
+anims/Hp2 = SubResource( 24 )

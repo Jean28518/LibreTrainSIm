@@ -1,0 +1,504 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://Resources/Basic/SignalTypes/Vo/Form/signalmast.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://Resources/Basic/SignalTypes/Vo/Form/pfeil.mesh" type="ArrayMesh" id=2]
+[ext_resource path="res://Resources/Basic/SignalTypes/Vo/Form/licht1.mesh" type="ArrayMesh" id=3]
+[ext_resource path="res://Resources/Basic/SignalTypes/Vo/Form/licht2.mesh" type="ArrayMesh" id=4]
+[ext_resource path="res://Resources/Basic/SignalTypes/Vo/Form/scheibe.mesh" type="ArrayMesh" id=5]
+[ext_resource path="res://Resources/Basic/SignalTypes/Vo/Form/ScriptingVo.gd" type="Script" id=6]
+[ext_resource path="res://Resources/Basic/SignalTypes/VoTafel.obj" type="ArrayMesh" id=7]
+[ext_resource path="res://Resources/Basic/Materials/vo_tafel.tres" type="Material" id=8]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 1, 0.658824, 0.00392157, 1 )
+emission_enabled = true
+emission = Color( 1, 0.513726, 0, 1 )
+emission_energy = 1.87
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=2]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.992157, 0.658824, 0.027451, 1 )
+emission_enabled = true
+emission = Color( 1, 0.843137, 0, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+distance_fade_mode = 1
+distance_fade_min_distance = 70.0
+distance_fade_max_distance = 200.0
+
+[sub_resource type="SphereMesh" id=4]
+radius = 0.3
+height = 0.6
+radial_segments = 6
+rings = 3
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.00392157, 1, 0.0196078, 1 )
+emission_enabled = true
+emission = Color( 0.196078, 1, 0, 1 )
+emission_energy = 1.87
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=6]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.0588235, 0.992157, 0.027451, 1 )
+emission_enabled = true
+emission = Color( 0, 1, 0.0392157, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+distance_fade_mode = 1
+distance_fade_min_distance = 70.0
+distance_fade_max_distance = 200.0
+
+[sub_resource type="SphereMesh" id=8]
+radius = 0.3
+height = 0.6
+radial_segments = 6
+rings = 3
+
+[sub_resource type="Animation" id=9]
+resource_name = "Vr0"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Model/pfeil:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Model/scheibe:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Model/licht1:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Model/licht2:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Model/licht1/Orange:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Model/licht1/Green:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Model/licht2/Orange:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Model/licht2/Green:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Vr1"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Model/scheibe:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, -90 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Model/pfeil:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Model/licht1:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -30, 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Model/licht2:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -30, 0, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Model/licht2/Orange:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Model/licht1/Orange:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Model/licht1/Green:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Model/licht2/Green:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Vr2"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Model/licht1:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Model/licht2:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -30, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Model/scheibe:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Model/pfeil:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -45, 0, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Model/licht2/Green:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Model/licht2/Orange:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Model/licht1/Green:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Model/licht1/Orange:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "Vr0"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "Vr1"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "Vr2"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+xfade_time = 1.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+xfade_time = 1.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+xfade_time = 1.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+xfade_time = 1.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+xfade_time = 1.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+xfade_time = 1.0
+
+[sub_resource type="AnimationNodeStateMachine" id=12]
+states/Vr0/node = SubResource( 14 )
+states/Vr0/position = Vector2( 328, 118 )
+states/Vr1/node = SubResource( 15 )
+states/Vr1/position = Vector2( 546, 118 )
+states/Vr2/node = SubResource( 16 )
+states/Vr2/position = Vector2( 433, 239 )
+transitions = [ "Vr0", "Vr1", SubResource( 17 ), "Vr1", "Vr0", SubResource( 18 ), "Vr0", "Vr2", SubResource( 19 ), "Vr2", "Vr0", SubResource( 20 ), "Vr2", "Vr1", SubResource( 21 ), "Vr1", "Vr2", SubResource( 22 ) ]
+start_node = "Vr0"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=13]
+
+[node name="VisualInstance" type="Spatial"]
+script = ExtResource( 6 )
+
+[node name="Model" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.667 )
+
+[node name="signalmast" type="MeshInstance" parent="Model"]
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="VoTafel" type="MeshInstance" parent="Model/signalmast"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.396589, 0 )
+mesh = ExtResource( 7 )
+material/0 = ExtResource( 8 )
+
+[node name="pfeil" type="MeshInstance" parent="Model"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0944007, 1.85677, 0.314669 )
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="scheibe" type="MeshInstance" parent="Model"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.106, 2.876, 0.319 )
+mesh = ExtResource( 5 )
+material/0 = null
+
+[node name="licht1" type="MeshInstance" parent="Model"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0393022, 1.79234, 0.260972 )
+mesh = ExtResource( 3 )
+material/0 = null
+
+[node name="Orange" type="MeshInstance" parent="Model/licht1"]
+transform = Transform( 1.5, 8.52651e-14, 4.26326e-14, -8.52651e-14, 1.5, 0, -4.26326e-14, -2.42338e-27, 1.5, -0.0919357, -0.0829387, -0.108965 )
+material_override = SubResource( 1 )
+cast_shadow = 0
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="Model/licht1/Orange"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+material_override = SubResource( 3 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="Green" type="MeshInstance" parent="Model/licht1"]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.0910899, 0.0868824, -0.108048 )
+visible = false
+material_override = SubResource( 5 )
+cast_shadow = 0
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="Model/licht1/Green"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+material_override = SubResource( 7 )
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="licht2" type="MeshInstance" parent="Model"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0393022, 2.27078, 0.367237 )
+mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="Orange" type="MeshInstance" parent="Model/licht2"]
+transform = Transform( 1.5, 8.52651e-14, 6.61161e-14, -8.52651e-14, 1.5, 0, -6.61161e-14, -3.75826e-27, 1.5, -0.0919357, 0.0861094, 0.106932 )
+material_override = SubResource( 1 )
+cast_shadow = 0
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="Model/licht2/Orange"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+material_override = SubResource( 3 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="Green" type="MeshInstance" parent="Model/licht2"]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.0910899, -0.0818944, 0.108706 )
+visible = false
+material_override = SubResource( 5 )
+cast_shadow = 0
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="Model/licht2/Green"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+material_override = SubResource( 7 )
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Vr0 = SubResource( 9 )
+anims/Vr1 = SubResource( 10 )
+anims/Vr2 = SubResource( 11 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 12 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 13 )

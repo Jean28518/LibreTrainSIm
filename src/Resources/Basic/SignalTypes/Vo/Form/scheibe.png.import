@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/ks_tafel.png-933e05e1b0053a47ef415caf69ff54fd.s3tc.stex"
-path.etc2="res://.import/ks_tafel.png-933e05e1b0053a47ef415caf69ff54fd.etc2.stex"
+path.s3tc="res://.import/scheibe.png-ce1302326983bdb89a98e7d5f6db6bf6.s3tc.stex"
+path.etc2="res://.import/scheibe.png-ce1302326983bdb89a98e7d5f6db6bf6.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Resources/Basic/Textures/ks_tafel.png"
-dest_files=[ "res://.import/ks_tafel.png-933e05e1b0053a47ef415caf69ff54fd.s3tc.stex", "res://.import/ks_tafel.png-933e05e1b0053a47ef415caf69ff54fd.etc2.stex" ]
+source_file="res://Resources/Basic/SignalTypes/Vo/Form/scheibe.png"
+dest_files=[ "res://.import/scheibe.png-ce1302326983bdb89a98e7d5f6db6bf6.s3tc.stex", "res://.import/scheibe.png-ce1302326983bdb89a98e7d5f6db6bf6.etc2.stex" ]
 
 [params]
 

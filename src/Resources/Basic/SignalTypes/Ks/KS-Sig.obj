@@ -1,7 +1,7 @@
-# Blender v2.81 (sub 16) OBJ File: 'KS-Sig.blend'
+# Blender v2.93.1 OBJ File: 'KS-Sig.blend'
 # www.blender.org
 mtllib KS-Sig.mtl
-o Cube_Cube.001
+o Signal_Cube.001
 v 0.429887 -1.332511 -0.014076
 v 0.327617 0.143022 0.088194
 v 0.429887 -1.332511 0.634498

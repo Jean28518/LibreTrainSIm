@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Resources/Basic/SignalTypes/Ks/Ks.tscn" type="PackedScene" id=2]
 [ext_resource path="res://addons/Libre_Train_Sim_Editor/Data/Scripts/Signal.gd" type="Script" id=4]
 
 [node name="Signal" type="Spatial" groups=[
@@ -9,5 +8,3 @@
 script = ExtResource( 4 )
 set_pass_at_h = 25
 visual_instance_path = ""
-
-[node name="VisualInstance" parent="." instance=ExtResource( 2 )]

@@ -22,6 +22,7 @@ func _ready():
 	$Screen2.material_override = $Screen2.material_override.duplicate(true)
 	$Screen2.material_override.emission_texture = texture
 	
+	
 	match signal_logic.signal_type:
 		signal_logic.SignalType.MAIN:
 			$HpTafel.visible = true
@@ -31,7 +32,10 @@ func _ready():
 			$HpTafel.visible = true
 			$KsTafel.visible = true
 	
+	# initialize signal
 	update_status(signal_logic)
+	$Viewport2/Node2D/Label.text = make_speed_str(signal_logic.speed)
+	$Viewport/Node2D/Label.text = make_speed_str(signal_logic.warn_speed)
 
 
 func blink():
@@ -79,18 +83,21 @@ func off():
 	$Screen2.visible = false
 	blink_timer.stop()
 
+func make_speed_str(speed):
+	var string
+	if speed - 100 >= 0:
+		var outputSpeed = int(speed / 10)
+		string = str(outputSpeed)
+	else: 
+		var outputSpeed = int(speed / 10)
+		string = " " + str(outputSpeed)
+	return string
 
 func update_speed(new_speed):
 	if new_speed < 0:
 		$Screen2.visible = false
 	else:
-		if new_speed - 100 >= 0:
-			var outputSpeed = int(new_speed / 10)
-			$Viewport2/Node2D/Label.text = String(outputSpeed)
-		else: 
-			var outputSpeed = int(new_speed / 10)
-			var string = " " + String(outputSpeed)
-			$Viewport2/Node2D/Label.text = string
+		$Viewport2/Node2D/Label.text = make_speed_str(new_speed)
 		$Screen2.visible = true
 
 
@@ -98,16 +105,9 @@ func update_warn_speed(new_speed):
 	if new_speed < 0:
 		$Screen1.visible = false
 	else:
-		if new_speed - 100 >= 0:
-			var outputSpeed = int(new_speed / 10)
-			$Viewport/Node2D/Label.text = String(outputSpeed)
-		else: 
-			var outputSpeed = int(new_speed / 10)
-			var string = " " + String(outputSpeed)
-			$Viewport/Node2D/Label.text = string
+		$Viewport/Node2D/Label.text = make_speed_str(new_speed)
 		$Screen1.visible = true
 
 		# start blinking in case we updated warn_speed after state
 		if signal_logic.status == SignalStatus.GREEN:
 			blink_timer.start()
-		

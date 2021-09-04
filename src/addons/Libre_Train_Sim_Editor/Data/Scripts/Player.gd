@@ -182,6 +182,9 @@ func ready(): ## Called by World!
 	route = route.split(" ")
 	bake_route()
 	
+	generate_hectometer_boards()
+	
+	
 	if Root.EasyMode or ai:
 		pantograph = true
 		control_type = ControlType.COMBINED
@@ -251,6 +254,29 @@ func ready(): ## Called by World!
 
 func init_map():
 	$HUD.init_map()
+
+
+func generate_hectometer_boards():
+	var total_route_dist = 0
+	for length in baked_route_railLength:
+		total_route_dist += length
+	var hektometer_prefab = preload("res://Resources/Basic/Objects/Hektometertafel.tscn")
+	for i in range(0,total_route_dist+1,200):
+		var inst = hektometer_prefab.instance()
+		world.get_node("TrackObjects").add_child(inst)
+		inst.set_distance(i)
+		inst.transform = get_transform_at_route_distance(i)
+
+
+func get_transform_at_route_distance(distance):
+	var dist = baked_route_railLength[0]
+	var index = 0
+	while distance > dist:
+		dist += baked_route_railLength[index]
+		index += 1
+	dist -= baked_route_railLength[index]
+	var rail = world.get_node("Rails").get_node(baked_route[index])
+	return rail.get_transform_at_rail_distance(distance - dist)
 
 
 var initialSwitchCheck = false

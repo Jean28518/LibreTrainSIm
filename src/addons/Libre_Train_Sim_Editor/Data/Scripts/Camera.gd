@@ -34,16 +34,9 @@ func _ready():
 	# Initialization here
 	self.set_process_input(true)
 	self.set_process(true)
-	
+
 	#set mouse position
 
-
-func _enter_tree():
-	if not Root.Editor:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
-#func _exit_tree():
-#	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 var mouseMotion = Vector2(0,0)
 
@@ -53,21 +46,21 @@ var mouse_not_moved = false
 func _input(event):
 	if Root.Editor and get_parent().get_node("EditorHUD").mouse_over_ui:
 		return
-		
+
 	if current and event is InputEventMouseMotion and (not Root.Editor or Input.is_mouse_button_pressed(BUTTON_RIGHT)):
 		mouseMotion = mouseMotion + event.relative
 		if event.relative != Vector2(0,0):
 			mouse_not_moved = false
-	
+
 	if current and event is InputEventMouseButton and event.button_index == BUTTON_RIGHT and event.pressed == true:
 		saved_mouse_position = get_viewport().get_mouse_position()
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		mouse_not_moved = true
-	
+
 	if current and event is InputEventMouseButton and event.button_index == BUTTON_RIGHT and event.pressed == false:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_viewport().warp_mouse(saved_mouse_position)
-	
+
 	if current and event is InputEventMouseButton and event.button_index == BUTTON_RIGHT and event.pressed == false and mouse_not_moved:
 		emit_signal("single_rightclick")
 
@@ -83,7 +76,7 @@ func _process(delta):
 		world = find_parent("World")
 	if not player and world != null:
 		player = world.find_node("Player")
-		
+
 	cameraY = rotation_degrees.y - 90.0
 	cameraX = -rotation_degrees.x
 	#mouse movement

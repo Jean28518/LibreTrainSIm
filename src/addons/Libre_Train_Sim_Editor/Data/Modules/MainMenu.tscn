@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://addons/Libre_Train_Sim_Editor/Data/Scripts/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://screenshot.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://addons/Libre_Train_Sim_Editor/Data/Misc/follow-that-dream-by-luca-fraula-from-filmmusic-io.ogg" type="AudioStream" id=6]
 [ext_resource path="res://addons/Libre_Train_Sim_Editor/Data/Modules/Main_Menu_Editor_Configuration.tscn" type="PackedScene" id=7]
 [ext_resource path="res://addons/jean28518.jTools/jSaveManager/jSaveModule.tscn" type="PackedScene" id=8]
+[ext_resource path="res://addons/Libre_Train_Sim_Editor/Data/Fonts/button_font.tres" type="DynamicFont" id=9]
+[ext_resource path="res://addons/Libre_Train_Sim_Editor/Data/Fonts/feedback_popup_font.tres" type="DynamicFont" id=10]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -38,110 +40,67 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="Front"]
 anchor_bottom = 1.0
 margin_left = 21.0
-margin_right = 253.0
+margin_right = 228.0
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Play" type="Button" parent="Front/VBoxContainer"]
-margin_top = 164.0
-margin_right = 232.0
-margin_bottom = 215.0
+margin_top = 182.0
+margin_right = 207.0
+margin_bottom = 218.0
 rect_min_size = Vector2( 180, 0 )
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 9 )
 text = "MENU_PLAY"
 
 [node name="Content" type="Button" parent="Front/VBoxContainer"]
-margin_top = 219.0
-margin_right = 232.0
-margin_bottom = 270.0
+margin_top = 222.0
+margin_right = 207.0
+margin_bottom = 258.0
 rect_min_size = Vector2( 180, 0 )
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 9 )
 text = "MENU_CONTENT"
 
 [node name="Create" type="Button" parent="Front/VBoxContainer"]
-margin_top = 274.0
-margin_right = 232.0
-margin_bottom = 325.0
+margin_top = 262.0
+margin_right = 207.0
+margin_bottom = 298.0
 rect_min_size = Vector2( 180, 0 )
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 9 )
 text = "MENU_CREATE"
 
 [node name="Settings" type="Button" parent="Front/VBoxContainer"]
-margin_top = 329.0
-margin_right = 232.0
-margin_bottom = 380.0
+margin_top = 302.0
+margin_right = 207.0
+margin_bottom = 338.0
 rect_min_size = Vector2( 180, 0 )
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 9 )
 text = "MENU_SETTINGS"
 
+[node name="Feedback" type="Button" parent="Front/VBoxContainer"]
+margin_top = 342.0
+margin_right = 207.0
+margin_bottom = 378.0
+grow_horizontal = 0
+custom_fonts/font = ExtResource( 9 )
+text = "MENU_FEEDBACK_WANTED"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Quit" type="Button" parent="Front/VBoxContainer"]
-margin_top = 384.0
-margin_right = 232.0
-margin_bottom = 435.0
+margin_top = 382.0
+margin_right = 207.0
+margin_bottom = 418.0
 rect_min_size = Vector2( 180, 0 )
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 9 )
 text = "MENU_QUIT"
-
-[node name="VBoxContainerAndoid" type="VBoxContainer" parent="Front"]
-visible = false
-anchor_bottom = 1.0
-margin_left = 21.0
-margin_right = 253.0
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Play" type="Button" parent="Front/VBoxContainerAndoid"]
-margin_top = 116.0
-margin_right = 600.0
-margin_bottom = 236.0
-rect_min_size = Vector2( 600, 120 )
-size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 4 )
-text = "MENU_PLAY"
-
-[node name="Feedback" type="Button" parent="Front/VBoxContainerAndoid"]
-margin_top = 240.0
-margin_right = 600.0
-margin_bottom = 360.0
-grow_horizontal = 0
-rect_min_size = Vector2( 0, 120 )
-custom_fonts/font = ExtResource( 4 )
-text = "MENU_FEEDBACK_WANTED"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Quit" type="Button" parent="Front/VBoxContainerAndoid"]
-margin_top = 364.0
-margin_right = 600.0
-margin_bottom = 484.0
-rect_min_size = Vector2( 200, 120 )
-size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 4 )
-text = "MENU_QUIT"
-
-[node name="Feedback" type="Button" parent="Front"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -221.894
-margin_top = 13.2964
-margin_right = -14.894
-margin_bottom = 49.2964
-grow_horizontal = 0
-custom_fonts/font = ExtResource( 3 )
-text = "MENU_FEEDBACK_WANTED"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MenuBackground" type="VBoxContainer" parent="."]
 visible = false
@@ -177,12 +136,12 @@ __meta__ = {
 
 [node name="Selection" type="HBoxContainer" parent="Play"]
 margin_right = 746.0
-margin_bottom = 304.0
+margin_bottom = 226.0
 size_flags_vertical = 3
 
 [node name="Tracks" type="VBoxContainer" parent="Play/Selection"]
 margin_right = 746.0
-margin_bottom = 304.0
+margin_bottom = 226.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="Play/Selection/Tracks"]
@@ -198,7 +157,7 @@ __meta__ = {
 [node name="ItemList" type="ItemList" parent="Play/Selection/Tracks"]
 margin_top = 49.0
 margin_right = 746.0
-margin_bottom = 304.0
+margin_bottom = 226.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 5 )
@@ -257,34 +216,34 @@ custom_fonts/font = ExtResource( 5 )
 items = [ "Strecke 1", null, false ]
 
 [node name="Info" type="HBoxContainer" parent="Play"]
-margin_top = 308.0
+margin_top = 230.0
 margin_right = 746.0
 margin_bottom = 508.0
 rect_min_size = Vector2( 0, 200 )
 
 [node name="Description" type="RichTextLabel" parent="Play/Info"]
 margin_right = 382.0
-margin_bottom = 200.0
+margin_bottom = 278.0
 size_flags_horizontal = 3
 custom_fonts/normal_font = ExtResource( 3 )
 
 [node name="Info" type="VBoxContainer" parent="Play/Info"]
 margin_left = 386.0
 margin_right = 386.0
-margin_bottom = 200.0
+margin_bottom = 278.0
 
 [node name="Author" type="Label" parent="Play/Info/Info"]
-margin_bottom = 30.0
+margin_bottom = 90.0
 custom_fonts/font = ExtResource( 3 )
 
 [node name="ReleaseDate" type="Label" parent="Play/Info/Info"]
-margin_top = 34.0
-margin_bottom = 64.0
+margin_top = 94.0
+margin_bottom = 184.0
 custom_fonts/font = ExtResource( 3 )
 
 [node name="Duration" type="Label" parent="Play/Info/Info"]
-margin_top = 68.0
-margin_bottom = 98.0
+margin_top = 188.0
+margin_bottom = 278.0
 custom_fonts/font = ExtResource( 3 )
 
 [node name="EasyMode" type="CheckBox" parent="Play/Info/Info"]
@@ -299,7 +258,7 @@ text = "MENU_EASY_MODE"
 [node name="Screenshot" type="TextureRect" parent="Play/Info"]
 margin_left = 390.0
 margin_right = 746.0
-margin_bottom = 200.0
+margin_bottom = 278.0
 rect_min_size = Vector2( 356, 0 )
 expand = true
 __meta__ = {
@@ -432,26 +391,25 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -201.0
-margin_top = -33.0
-margin_right = -6.0
-margin_bottom = -3.0
+margin_left = -261.0
+margin_top = -90.0
 grow_horizontal = 0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 10 )
 text = "Version: 0.0"
 align = 2
+valign = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label_Music" type="Label" parent="."]
-visible = false
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -30.0
-margin_right = 306.0
-custom_fonts/font = ExtResource( 3 )
+margin_top = -90.0
+margin_right = 309.0
+custom_fonts/font = ExtResource( 10 )
 text = "MENU_MUSIC:"
+valign = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -482,7 +440,7 @@ __meta__ = {
 margin_right = 455.0
 margin_bottom = 121.0
 size_flags_vertical = 3
-custom_fonts/normal_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 10 )
 text = "MENU_FEEDBACK_QUESTION"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="FeedBack/VBoxContainer"]
@@ -495,7 +453,7 @@ size_flags_horizontal = 3
 margin_right = 225.0
 margin_bottom = 36.0
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 9 )
 text = "MENU_LATER"
 
 [node name="OpenWebBrowser" type="Button" parent="FeedBack/VBoxContainer/HBoxContainer"]
@@ -503,7 +461,7 @@ margin_left = 229.0
 margin_right = 455.0
 margin_bottom = 36.0
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 9 )
 text = "MENU_OPEN_IN_BROWSER"
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
@@ -517,11 +475,8 @@ bus = "Music"
 [connection signal="pressed" from="Front/VBoxContainer/Content" to="." method="_on_Content_pressed"]
 [connection signal="pressed" from="Front/VBoxContainer/Create" to="." method="_on_FrontCreate_pressed"]
 [connection signal="pressed" from="Front/VBoxContainer/Settings" to="." method="_on_SettingsFront_pressed"]
+[connection signal="pressed" from="Front/VBoxContainer/Feedback" to="." method="_on_ButtonFeedback_pressed"]
 [connection signal="pressed" from="Front/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
-[connection signal="pressed" from="Front/VBoxContainerAndoid/Play" to="." method="_on_PlayFront_pressed"]
-[connection signal="pressed" from="Front/VBoxContainerAndoid/Feedback" to="." method="_on_ButtonFeedback_pressed"]
-[connection signal="pressed" from="Front/VBoxContainerAndoid/Quit" to="." method="_on_Quit_pressed"]
-[connection signal="pressed" from="Front/Feedback" to="." method="_on_ButtonFeedback_pressed"]
 [connection signal="item_selected" from="Play/Selection/Tracks/ItemList" to="." method="_on_ItemList_itemTracks_selected"]
 [connection signal="item_selected" from="Play/Selection/Scenarios/ItemList" to="." method="_on_ItemList_scenario_selected"]
 [connection signal="item_selected" from="Play/Selection/Trains/ItemList" to="." method="_on_ItemList_Train_selected"]

@@ -1,9 +1,15 @@
-[gd_resource type="DynamicFont" load_steps=3 format=2]
+[gd_resource type="DynamicFont" load_steps=4 format=2]
 
 [ext_resource path="res://addons/Libre_Train_Sim_Editor/Data/Misc/Oswald-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://addons/Libre_Train_Sim_Editor/Data/Misc/NotoSansJP-Regular.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://addons/Libre_Train_Sim_Editor/Data/Misc/AutoDynamicFont.gd" type="Script" id=3]
 
 [resource]
 size = 30
+use_filter = true
 font_data = ExtResource( 1 )
 fallback/0 = ExtResource( 2 )
+script = ExtResource( 3 )
+desktop_size = 30
+mobile_size = 60
+debug_test_size = false

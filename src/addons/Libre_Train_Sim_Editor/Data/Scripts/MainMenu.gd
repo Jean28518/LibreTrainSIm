@@ -2,14 +2,11 @@ tool
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 export var version = ""
-export (bool) var mobile_version setget update_project_for_mobile
-var save_path = OS.get_executable_path().get_base_dir()+"config.cfg"
+var mobile_version := false setget update_project_for_mobile
+var save_path := OS.get_executable_path().get_base_dir()+"config.cfg"
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	if Engine.is_editor_hint():
 		return
@@ -24,22 +21,19 @@ func _ready():
 		$FeedBack.popup()
 	$MusicPlayer.play(0)
 
-
-	Root.mobile_version = mobile_version
-
+	mobile_version = Root.mobile_version
 	if mobile_version:
 		set_menu_to_mobile()
-	
+
 	if Root.start_menu_in_play_menu:
 		Root.start_menu_in_play_menu = false
 		$FeedBack.hide()
 		_on_PlayFront_pressed()
 
-	
+
 func set_menu_to_mobile():
 	$Front/VBoxContainer.hide()
 	$Front/VBoxContainerAndoid.show()
-	$Front/Feedback.hide()
 	$Play/Buttons/Play.add_font_override("font", preload("res://addons/Libre_Train_Sim_Editor/Data/Misc/FontMenu.tres"))
 	$Play/Buttons/Back.add_font_override("font", preload("res://addons/Libre_Train_Sim_Editor/Data/Misc/FontMenu.tres"))
 	$Play/Selection/Tracks/Label.add_font_override("font", preload("res://addons/Libre_Train_Sim_Editor/Data/Misc/FontMenu.tres"))
@@ -48,7 +42,7 @@ func set_menu_to_mobile():
 	$Play/Selection/Scenarios/ItemList.add_font_override("font", preload("res://addons/Libre_Train_Sim_Editor/Data/Misc/FontMenu.tres"))
 	$Play/Selection/Trains/Label.add_font_override("font", preload("res://addons/Libre_Train_Sim_Editor/Data/Misc/FontMenu.tres"))
 	$Play/Selection/Trains/ItemList.add_font_override("font", preload("res://addons/Libre_Train_Sim_Editor/Data/Misc/FontMenu.tres"))
-	
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -112,7 +106,7 @@ func update_config():
 	else:
 		print("Skipping pack loading in editor build, because of https://github.com/godotengine/godot/issues/16798")
 	print("Found Content Packs: %s" % [foundContentPacks])
-	
+
 	for contentPack in foundContentPacks:
 		if ProjectSettings.load_resource_pack(contentPack, false):
 			print("Loading Content Pack %s successfully finished" % contentPack)
@@ -149,10 +143,10 @@ func _on_PlayPlay_pressed():
 	$MenuBackground.hide()
 	$Play.hide()
 	$Loading.show()
-	## Load 
+	## Load
 	var track_name = foundTracks[index].get_basename().get_file()
 	var save_path = foundTracks[index].get_basename() + "-scenarios.cfg"
-	
+
 	if currentTrack.get_basename().get_file() == "Tutorials":
 		$Background.texture = load("res://Worlds/"+track_name + "/screenshot.png")
 	else:
@@ -187,7 +181,7 @@ func _on_ItemList_itemTracks_selected(index):
 	$Play/Info/Info/ReleaseDate.text = " "+ TranslationServer.translate("MENU_RELEASE") + ": " + String(wData["ReleaseDate"][1]) + " " + String(wData["ReleaseDate"][2]) + " "
 	var track_name = currentTrack.get_basename().get_file()
 	print(track_name)
-	
+
 	if track_name == "Tutorials":
 		$Play/Info/Screenshot.texture = load("res://Worlds/"+track_name + "/screenshot.png")
 	else:
@@ -264,7 +258,7 @@ func _on_ItemList_Train_selected(index):
 	$Play/Info/Description.text = TranslationServer.translate(train.description)
 	$Play/Info/Info/ReleaseDate.text = TranslationServer.translate("MENU_RELEASE")+": "+ train.releaseDate
 	$Play/Info/Info/Author.text = TranslationServer.translate("MENU_AUTHOR")+": "+ train.author
-	$Play/Info/Screenshot.texture = load(train.screenshotPath)#
+	$Play/Info/Screenshot.texture = load(train.screenshotPath)
 	var electric = TranslationServer.translate("YES")
 	if not train.electric:
 		electric = TranslationServer.translate("NO")

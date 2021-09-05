@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://addons/Libre_Train_Sim_Editor/Data/Misc/FontMenu.tres" type="DynamicFont" id=1]
 [ext_resource path="res://addons/Libre_Train_Sim_Editor/Data/Scripts/MobileHUD.gd" type="Script" id=2]
 [ext_resource path="res://addons/Libre_Train_Sim_Editor/Data/Misc/FontIngame.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Resources/Basic/Textures/Black.png" type="Texture" id=4]
 [ext_resource path="res://Resources/Basic/Textures/pantograph_button.png" type="Texture" id=5]
 [ext_resource path="res://Resources/Basic/Textures/light_button.png" type="Texture" id=6]
 [ext_resource path="res://Resources/Basic/Textures/engine_button.png" type="Texture" id=7]
@@ -205,8 +204,8 @@ __meta__ = {
 }
 
 [node name="ProgressBar" type="ColorRect" parent="."]
+anchor_bottom = 1.0
 margin_right = 30.0
-margin_bottom = 2008.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -224,64 +223,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Pause" type="Control" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="Pause"]
-modulate = Color( 1, 1, 1, 0.564706 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 4 )
-stretch_mode = 7
-
-[node name="Label" type="Label" parent="Pause"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -172.5
-margin_top = -205.0
-margin_right = 172.5
-margin_bottom = -115.0
-custom_fonts/font = ExtResource( 1 )
-text = "PAUSE"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Pause"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -172.5
-margin_top = -98.0
-margin_right = 172.5
-margin_bottom = 98.0
-grow_horizontal = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Back" type="Button" parent="Pause/VBoxContainer"]
-margin_right = 345.0
-margin_bottom = 96.0
-custom_fonts/font = ExtResource( 1 )
-text = "BACK"
-
-[node name="QuitMenu" type="Button" parent="Pause/VBoxContainer"]
-margin_top = 100.0
-margin_right = 345.0
-margin_bottom = 196.0
-custom_fonts/font = ExtResource( 1 )
-text = "QUIT_TO_MENU"
-
 [connection signal="pressed" from="Up" to="." method="_on_Up_pressed"]
 [connection signal="pressed" from="Down" to="." method="_on_Down_pressed"]
 [connection signal="pressed" from="Camera" to="." method="_on_Camera_pressed"]
@@ -294,5 +235,3 @@ text = "QUIT_TO_MENU"
 [connection signal="pressed" from="DoorClose" to="." method="_on_DoorClose_pressed"]
 [connection signal="pressed" from="DoorRight" to="." method="_on_DoorRight_pressed"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_PauseButton_pressed"]
-[connection signal="pressed" from="Pause/VBoxContainer/Back" to="." method="_on_Pause_Back_pressed"]
-[connection signal="pressed" from="Pause/VBoxContainer/QuitMenu" to="." method="_on_Pause_QuitMenu_pressed"]

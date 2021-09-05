@@ -5,5 +5,6 @@
 
 [resource]
 size = 60
+use_filter = true
 font_data = ExtResource( 1 )
 fallback/0 = ExtResource( 2 )

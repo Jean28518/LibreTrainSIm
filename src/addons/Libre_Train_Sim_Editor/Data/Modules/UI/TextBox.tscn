@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://addons/Libre_Train_Sim_Editor/Data/Fonts/message_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://addons/Libre_Train_Sim_Editor/Data/Fonts/button_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Resources/Basic/Textures/text_box.png" type="Texture" id=3]
+[ext_resource path="res://addons/Libre_Train_Sim_Editor/Data/Modules/UI/TextBox.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 3 )
+region_rect = Rect2( 26, 26, 889, 543 )
+margin_left = 6.57943
+margin_right = 19.4478
+margin_top = 6.29013
+margin_bottom = 19.282
+
+[node name="TextBox" type="PanelContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -348.0
+margin_top = -249.0
+margin_right = 361.0
+margin_bottom = 266.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 6.57943
+margin_top = 6.29013
+margin_right = 689.552
+margin_bottom = 495.718
+
+[node name="Message" type="RichTextLabel" parent="VBoxContainer"]
+margin_right = 682.0
+margin_bottom = 449.0
+focus_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = ExtResource( 1 )
+text = "Test Test meine Freunde"
+selection_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ok" type="Button" parent="VBoxContainer"]
+margin_top = 453.0
+margin_right = 682.0
+margin_bottom = 489.0
+grow_horizontal = 2
+grow_vertical = 0
+rect_min_size = Vector2( 100, 36 )
+custom_fonts/font = ExtResource( 2 )
+text = "OK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="VBoxContainer/Ok" to="." method="_on_Ok_pressed"]

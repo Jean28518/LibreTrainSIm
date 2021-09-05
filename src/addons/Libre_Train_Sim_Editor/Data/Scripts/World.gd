@@ -102,14 +102,10 @@ func _ready():
 
 		player = $Players/Player
 		lastchunk = pos2Chunk(getOriginalPos_bchunk(player.translation))
-		
-		player.init_map()
-		
+
 		apply_user_settings()
 
 
-	pass
-	
 func save_value(key : String, value):
 	return $jSaveModule.save_value(key, value)
 	

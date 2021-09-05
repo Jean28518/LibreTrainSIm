@@ -158,12 +158,7 @@ func ready(): ## Called by World!
 	
 	pause_mode = Node.PAUSE_MODE_PROCESS
 	$Camera.pause_mode = Node.PAUSE_MODE_PROCESS
-	
-	# capture mouse
-	# TODO: input mapping to release mouse for interaction?
-	# FIXME: mouse is visible in Grey Train, but not in Red Train, why?
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
+
 	if not ai:
 		cameraZeroTransform = cameraNode.transform
 		cameraX = -$Camera.rotation_degrees.x
@@ -234,10 +229,6 @@ func ready(): ## Called by World!
 		frontLight = true
 	
 	print("Train " + name + " spawned sucessfully at " + currentRail.name)
-
-
-func init_map():
-	$HUD.init_map()
 
 
 var initialSwitchCheck = false
@@ -367,7 +358,7 @@ func stopEngine():
 func get_time():
 	time = world.time
 
-func _input(event):
+func _unhandled_input(event):
 	if ai:
 		return
 	if get_tree().paused and not Root.ingame_pause:
@@ -377,7 +368,7 @@ func _input(event):
 		
 	if event.is_pressed():
 		# zoom in
-		if Input.is_mouse_button_pressed(BUTTON_WHEEL_UP) and not $HUD.is_full_map_visible():
+		if Input.is_mouse_button_pressed(BUTTON_WHEEL_UP):
 			if camera_state == CameraState.CABIN_VIEW:
 				camera_fov_soll = camera_fov + 5
 			elif camera_state == CameraState.OUTER_VIEW:
@@ -385,7 +376,7 @@ func _input(event):
 				has_camera_distance_changed = true
 			# call the zoom function
 		# zoom out
-		if Input.is_mouse_button_pressed(BUTTON_WHEEL_DOWN) and not $HUD.is_full_map_visible():
+		if Input.is_mouse_button_pressed(BUTTON_WHEEL_DOWN):
 			if camera_state == CameraState.CABIN_VIEW:
 				camera_fov_soll = camera_fov - 5
 			elif camera_state == CameraState.OUTER_VIEW:

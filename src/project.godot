@@ -9,15 +9,35 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "DynamicFont",
+"class": "AutoDynamicFont",
+"language": "GDScript",
+"path": "res://addons/Libre_Train_Sim_Editor/Data/Misc/AutoDynamicFont.gd"
+}, {
 "base": "Label",
 "class": "InputLabel",
 "language": "GDScript",
 "path": "res://addons/Libre_Train_Sim_Editor/Data/Scripts/InputLabel.gd"
 }, {
+"base": "Control",
+"class": "Map",
+"language": "GDScript",
+"path": "res://addons/Libre_Train_Sim_Editor/Data/Modules/UI/map.gd"
+}, {
+"base": "Control",
+"class": "Pause",
+"language": "GDScript",
+"path": "res://addons/Libre_Train_Sim_Editor/Data/Modules/UI/pause.gd"
+}, {
 "base": "Reference",
 "class": "SignalStatus",
 "language": "GDScript",
 "path": "res://addons/Libre_Train_Sim_Editor/Data/Scripts/Enums/SignalStatus.gd"
+}, {
+"base": "PanelContainer",
+"class": "TextBox",
+"language": "GDScript",
+"path": "res://addons/Libre_Train_Sim_Editor/Data/Modules/UI/TextBox.gd"
 }, {
 "base": "Control",
 "class": "TimeField",
@@ -25,8 +45,12 @@ _global_script_classes=[ {
 "path": "res://addons/Libre_Train_Sim_Editor/Docks/Configuration/time_field.gd"
 } ]
 _global_script_class_icons={
+"AutoDynamicFont": "",
 "InputLabel": "",
+"Map": "",
+"Pause": "",
 "SignalStatus": "",
+"TextBox": "",
 "TimeField": ""
 }
 

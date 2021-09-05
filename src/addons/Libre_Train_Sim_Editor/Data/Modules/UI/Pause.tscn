@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/Libre_Train_Sim_Editor/Data/Misc/FontIngame.tres" type="DynamicFont" id=1]
+[ext_resource path="res://addons/Libre_Train_Sim_Editor/Data/Modules/UI/pause.gd" type="Script" id=2]
+
+[node name="Pause" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0.564706 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.564706 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 227.0
+margin_top = 105.0
+margin_right = 572.0
+margin_bottom = 495.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer/HBox"]
+margin_right = 345.0
+margin_bottom = 90.0
+custom_fonts/font = ExtResource( 1 )
+text = "PAUSE"
+align = 1
+
+[node name="Back" type="Button" parent="CenterContainer/HBox"]
+margin_top = 94.0
+margin_right = 345.0
+margin_bottom = 190.0
+custom_fonts/font = ExtResource( 1 )
+text = "BACK"
+
+[node name="QuitMenu" type="Button" parent="CenterContainer/HBox"]
+margin_top = 194.0
+margin_right = 345.0
+margin_bottom = 290.0
+custom_fonts/font = ExtResource( 1 )
+text = "QUIT_TO_MENU"
+
+[node name="QuitOS" type="Button" parent="CenterContainer/HBox"]
+margin_top = 294.0
+margin_right = 345.0
+margin_bottom = 390.0
+custom_fonts/font = ExtResource( 1 )
+text = "QUIT_TO_OS"
+
+[connection signal="pressed" from="CenterContainer/HBox/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="CenterContainer/HBox/QuitMenu" to="." method="_on_QuitMenu_pressed"]
+[connection signal="pressed" from="CenterContainer/HBox/QuitOS" to="." method="_on_Quit_pressed"]

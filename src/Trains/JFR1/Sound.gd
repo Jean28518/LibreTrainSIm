@@ -2,8 +2,8 @@ extends Spatial
 
 #onready var drivePitchShift = AudioServer.get_bus_effect(2, 0)
 
-export (float) var AccelerationTransitionTime 
-export (float) var AccelerationTransitionSpeed 
+export (float) var AccelerationTransitionTime
+export (float) var AccelerationTransitionSpeed
 
 
 var sollAccelerationVolume1 = -50
@@ -51,7 +51,7 @@ onready var player = get_parent()
 #	if !$AccelerationTransition.playing:
 #		sollAccelerationVolume1 = -50+(command*60) - speed*0.05
 #		sollAccelerationVolume2 = sollAccelerationVolume1
-#		if not $Acceleration1.playing: 
+#		if not $Acceleration1.playing:
 #			sollAccelerationVolume1 = -50
 #		if not $Acceleration2.playing:
 #			sollAccelerationVolume2 = -50

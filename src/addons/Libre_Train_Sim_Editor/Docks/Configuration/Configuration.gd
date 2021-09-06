@@ -121,7 +121,7 @@ func get_scenario_settings(): # fills the settings field with saved values
 	if not sData.has(currentScenario): return
 	var s = sData[currentScenario]
 #	print(s)
-	
+
 	if s.size() == 0:
 		return
 

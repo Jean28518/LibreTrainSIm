@@ -13,9 +13,9 @@ func update_time(time):
 		minute = "0" + minute
 	if second.length() == 1:
 		second = "0" + second
-	
+
 	$Time.text = hour + ":" + minute +":" + second
-	
+
 func update_command(command):
 	$ZK1.value = command
 	$ZK2.value = command
@@ -28,5 +28,5 @@ func update_command(command):
 	$ZK8.value = - command
 	$ZK9.value = - command
 	$ZK10.value = - command
-		
-	
+
+

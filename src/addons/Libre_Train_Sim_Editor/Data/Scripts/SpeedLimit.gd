@@ -32,21 +32,21 @@ func set_to_rail(newvar):
 	var texture = $Viewport.get_texture()
 	$MeshInstance/Display.material_override = $MeshInstance/Display.material_override.duplicate(true)
 	$MeshInstance/Display.material_override.albedo_texture = texture
-	
-	
+
+
 	if speed - 100 >= 0:
 		var outputSpeed = int(speed / 10)
 		$Viewport/Speed/Label.text = String(outputSpeed)
-	else: 
+	else:
 		var outputSpeed = int(speed / 10)
 		var string = " " + String(outputSpeed)
 		$Viewport/Speed/Label.text = string
-	
-	
+
+
 	if not find_parent("World"):
 		print("SpeedSign can't find World Parent!'")
 		return
-	
+
 	if find_parent("World").has_node("Rails/"+attached_rail) and attached_rail != "":
 		var rail = find_parent("World").get_node("Rails/"+attached_rail)
 		rail.register_signal(self.name, on_rail_position)

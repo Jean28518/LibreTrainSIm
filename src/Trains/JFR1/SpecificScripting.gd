@@ -14,22 +14,22 @@ func ready():
 	var texture = get_node("../Cabin/DisplayMiddle").get_texture()
 	get_node("../Cabin/ScreenMiddle").material_override.emission_texture = texture
 	get_node("../Cabin/DisplayMiddle/Display").blinkingTimer = player.get_node("HUD").get_node("IngameInformation/TrainInfo/Screen1").blinkingTimer
-	
+
 	get_node("../Cabin/DisplayLeft").set_clear_mode(Viewport.CLEAR_MODE_ONLY_NEXT_FRAME)
 	texture = get_node("../Cabin/DisplayLeft").get_texture()
 	get_node("../Cabin/ScreenLeft").material_override.emission_texture = texture
-	
+
 	get_node("../Cabin/DisplayRight").set_clear_mode(Viewport.CLEAR_MODE_ONLY_NEXT_FRAME)
 	texture = get_node("../Cabin/DisplayRight").get_texture()
 	get_node("../Cabin/ScreenRight").material_override.emission_texture = texture
-	
+
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if player.ai: return
-	if not is_ready: 
+	if not is_ready:
 		is_ready = true
 		ready()
 	get_node("../Cabin/DisplayMiddle/Display").update_display(Math.speedToKmH(player.speed), player.technicalSoll, player.doorLeft, player.doorRight, player.doorsClosing, player.enforcedBreaking, player.sifa, player.automaticDriving, player.currentSpeedLimit, player.engine)
@@ -37,17 +37,17 @@ func _process(delta):
 	get_node("../Cabin/DisplayLeft/ScreenLeft2").update_time(player.time)
 	get_node("../Cabin/DisplayLeft/ScreenLeft2").update_voltage(player.voltage)
 	get_node("../Cabin/DisplayLeft/ScreenLeft2").update_command(player.command)
-	
+
 	var stations = player.stations
 	get_node("../Cabin/DisplayRight/ScreenRight").update_display(stations["arrivalTime"], stations["departureTime"], stations["stationName"], stations["stopType"], stations["passed"], player.isInStation)
-	
+
 	if player.controlType == 0:
 		update_Brake_Roll(player.soll_command, get_node("../Cabin/BrakeRoll"))
 		update_Acc_Roll(player.soll_command, get_node("../Cabin/AccRoll"))
 	else:
 		update_Brake_Roll(player.brakeRoll, get_node("../Cabin/BrakeRoll"))
 		update_Acc_Roll(player.accRoll, get_node("../Cabin/AccRoll"))
-		
+
 
 
 

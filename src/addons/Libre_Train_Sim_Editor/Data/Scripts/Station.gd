@@ -37,12 +37,12 @@ func _ready():
 		$MeshInstance.queue_free()
 		set_to_rail(true)
 		personSystem = personSystem and jSettings.get_persons() and not Root.mobile_version
-		
-		
+
+
 func _process(delta):
 	if rail == null:
 		set_to_rail(true)
-	
+
 	if not Engine.editor_hint and not Root.Editor:
 		if personSystem:
 			handlePersons()
@@ -61,8 +61,8 @@ func set_to_rail(newvar):
 			rotation_degrees.y += 180
 	else:
 		queue_free()
-		
-		
+
+
 func get_scenario_data():
 	return null
 func set_scenario_data(d):
@@ -78,19 +78,19 @@ func spawnPersonsAtBeginning():
 
 func set_waiting_persons(count : int):
 	waitingPersonCount = count
-	spawnPersonsAtBeginning() 
-	
+	spawnPersonsAtBeginning()
+
 
 func handlePersons():
 	if platformSide == 0:
 		return
 	if rail == null:
 		return
-	
+
 	if rail.visible and attachedPersons.size() < waitingPersonCount:
 		spawnRandomPerson()
-		
-		
+
+
 func spawnRandomPerson():
 	randomize()
 	var person = preload("res://addons/Libre_Train_Sim_Editor/Data/Modules/Person.tscn")
@@ -101,10 +101,10 @@ func spawnRandomPerson():
 	personI.transform = getRandomTransformAtPlatform()
 	personsNode.add_child(personI)
 	personI.owner = world
-	
+
 	attachedPersons.append(personI)
-	
-	
+
+
 func getRandomTransformAtPlatform():
 	if forward:
 		var randRailDistance = int(rand_range(on_rail_position, on_rail_position+stationLength))
@@ -118,7 +118,7 @@ func getRandomTransformAtPlatform():
 			return Transform(Basis(Vector3(0,deg2rad(rail.get_deg_at_RailDistance(randRailDistance)+180.0), 0)), rail.get_shifted_pos_at_RailDistance(randRailDistance, rand_range(platformStart, platformEnd)) + Vector3(0, platformHeight, 0))
 		if platformSide == 2: ## right
 			return Transform(Basis(Vector3(0,deg2rad(rail.get_deg_at_RailDistance(randRailDistance)), 0)) , rail.get_shifted_pos_at_RailDistance(randRailDistance, rand_range(-platformStart, -platformEnd)) + Vector3(0, platformHeight, 0))
-		
+
 func setDoorPositions(doors, doorsWagon): ## Called by the train
 	if doors.size() == 0:
 		return
@@ -132,14 +132,14 @@ func setDoorPositions(doors, doorsWagon): ## Called by the train
 		person.transitionToWagon = true
 		person.assignedDoor = doors[nearestDoorIndex]
 		person.attachedWagon = doorsWagon[nearestDoorIndex]
-		
-		
+
+
 func deregisterPerson(personToDelete):
 	if attachedPersons.has(personToDelete):
 		attachedPersons.erase(personToDelete)
 		waitingPersonCount -= 1
 
-			
+
 func registerPerson(personNode):
 	attachedPersons.append(personNode)
 	personNode.get_parent().remove_child(personNode)

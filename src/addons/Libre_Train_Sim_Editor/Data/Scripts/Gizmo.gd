@@ -12,10 +12,10 @@ var mouseMotion = Vector2(0,0)
 func _input(event):
 	if event is InputEventMouseMotion:
 		mouseMotion = mouseMotion + event.relative
-	
+
 	if event is InputEventMouseButton and event.pressed == true:
 		mouseMotion = Vector2(0,0)
-		
+
 	if event is InputEventMouseButton:
 		if event.pressed == false:
 			x_active = false
@@ -27,7 +27,7 @@ func _input(event):
 
 func _process(delta):
 	rotation_degrees.y = - get_parent().rotation_degrees.y
-	
+
 	var screen_size = get_viewport().size
 
 	if Input.is_mouse_button_pressed(BUTTON_LEFT) and (x_active or y_active or z_active or x_rot_active):
@@ -38,13 +38,13 @@ func _process(delta):
 			get_parent().translation.y -= mouseMotion.y * 0.01
 		if z_active:
 			get_parent().translation.z += mouseMotion.x * 0.01
-		
+
 		if x_rot_active:
 			get_parent().rotation_degrees.y += mouseMotion.x * 0.1
-			
+
 		mouseMotion = Vector2(0,0)
-	
-	
+
+
 
 func _on_xaxis_mouse_entered():
 	x_active = true

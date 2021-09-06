@@ -2,7 +2,7 @@ tool
 extends MultiMeshInstance
 
 export (String) var description = ""
-export (String) var attached_rail 
+export (String) var attached_rail
 export (float) var on_rail_position
 export (float) var length
 
@@ -19,7 +19,7 @@ export (float) var rotationObjects = 0
 export (bool) var randomLocation
 export (float) var randomLocationFactor = 0.3
 export (bool) var randomRotation
-export (bool) var randomScale 
+export (bool) var randomScale
 export (float) var randomScaleFactor = 0.2
 export (bool) var placeLast = false
 export (bool) var applySlopeRotation = false
@@ -63,8 +63,8 @@ func get_data():
 	d.applySlopeRotation = applySlopeRotation
 	d.randomSeed = randomSeed
 	return d
-	
-	
+
+
 func set_data(d):
 	description = d.description
 	attached_rail = d.attached_rail
@@ -113,7 +113,7 @@ func update(_rail_node, res_cache = {}):
 	if wholeRail:
 		on_rail_position = 0
 		length = rail_node.length
-	
+
 	translation = rail_node.get_pos_at_RailDistance(on_rail_position)
 	var mesh_res
 	if not res_cache.has(objectPath):
@@ -125,11 +125,11 @@ func update(_rail_node, res_cache = {}):
 #	mesh_res = load(objectPath)
 
 	multimesh.mesh = load(objectPath).duplicate()
-	
+
 	# This was sometimes out of bounds!!
 	#for x in range(materialPaths.size()):
-	# FIX: 
-	
+	# FIX:
+
 	var count = min(multimesh.mesh.get_surface_count(), materialPaths.size())
 	for x in range(count):
 		if materialPaths[x] != "":
@@ -140,7 +140,7 @@ func update(_rail_node, res_cache = {}):
 					continue
 				res_cache[material_path] = load(material_path)
 			multimesh.mesh.surface_set_material(x, res_cache[material_path])
-	
+
 	var straightCount = int(length / distanceLength)
 	if placeLast:
 		straightCount += 1
@@ -151,7 +151,7 @@ func update(_rail_node, res_cache = {}):
 		self.multimesh.instance_count = 0
 	if sides == 1 or sides == 2:
 		self.multimesh.instance_count = int(straightCount * rows)
-	if sides == 3: 
+	if sides == 3:
 		self.multimesh.instance_count = int(straightCount * rows)*2
 	var idx = 0
 	var railpos = on_rail_position

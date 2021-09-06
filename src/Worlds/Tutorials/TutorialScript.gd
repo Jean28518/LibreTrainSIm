@@ -28,7 +28,7 @@ func _process(delta):
 	if scenario == "The Basics - Mobile Version":
 		basics_mobile_version()
 		return
-		
+
 	message_sent = true
 
 
@@ -82,12 +82,12 @@ func basics():
 			if player.distanceOnRail > 250 and player.currentRail.name == "Rail2":
 				next_step()
 
-		9: 
-			# message: Hint: If you don't know further on at any time or you just want to enjoy the ride, press 'ctr' + 'a' to activate the autopilot. 
+		9:
+			# message: Hint: If you don't know further on at any time or you just want to enjoy the ride, press 'ctr' + 'a' to activate the autopilot.
 			message = TranslationServer.translate("TUTORIAL_0_11")
 			if player.speed == 0 and player.currentStationName == "Tutorialbach" and not player.wholeTrainNotInStation:
 				next_step()
-			
+
 		10:
 #			message = "Great, you arrived securly!\nNow you have to open the doors.\nWith 'i' you can open the left one, with 'p' the right one.\nIn our case we have to open the left one with 'i'."
 			message = TranslationServer.translate("TUTORIAL_0_8")
@@ -116,18 +116,18 @@ func advanced():
 			message = TranslationServer.translate("TUTORIAL_1_2")
 			if player.distanceOnRail > 800:
 				next_step()
-		4: 
+		4:
 			message = TranslationServer.translate("TUTORIAL_1_5")
 			if player.currentRail.name == "Rail2":
 				next_step()
-			
+
 		5:
 			message = TranslationServer.translate("TUTORIAL_1_3")
 			if player.isInStation:
 				next_step()
 		6:
 			message = TranslationServer.translate("TUTORIAL_1_4")
-			
+
 func basics_mobile_version():
 	match step:
 		0:
@@ -193,13 +193,13 @@ func basics_mobile_version():
 			if player.distanceOnRail > 250 and player.currentRail.name == "Rail2":
 				next_step()
 
-		9: 
-			# message: Hint: If you don't know further on at any time or you just want to enjoy the ride, press 'ctr' + 'a' to activate the autopilot. 
+		9:
+			# message: Hint: If you don't know further on at any time or you just want to enjoy the ride, press 'ctr' + 'a' to activate the autopilot.
 			message = TranslationServer.translate("TUTORIAL_4_9")
 			player.get_node("HUD/MobileHUD/Autopilot").modulate = Color(1, 0.5, 0, 1)
 			if player.speed == 0 and player.currentStationName == "Tutorialbach" and not player.wholeTrainNotInStation:
 				next_step()
-			
+
 		10:
 #			message = "Great, you arrived securly!\nNow you have to open the doors.\nWith 'i' you can open the left one, with 'p' the right one.\nIn our case we have to open the left one with 'i'."
 			message = TranslationServer.translate("TUTORIAL_4_10")

@@ -35,12 +35,12 @@ func write_to_disk():
 	for key in _cache_main.keys():
 		_config.set_value("Main", key, _cache_main[key])
 	_config.save(save_path)
-	
+
 func load_everything_into_cache():
 	reload()
 	for key in _config.get_section_keys("Main"):
 		_cache_main[key] = _config.get_value("Main", key, null)
-	
+
 
 ## Internal Code ###############################################################
 var _config

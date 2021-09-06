@@ -28,7 +28,7 @@ func _process(delta):
 
 var leave_wagon_timer = 0
 func handleWalk(delta):
-	
+
 	# If Doors where closed to early, and the person is at the station..
 	if transitionToWagon == true and not (attachedWagon.lastDoorRight or attachedWagon.lastDoorLeft):
 		if attachedWagon.player.currentStationNode != attachedStation:
@@ -40,10 +40,10 @@ func handleWalk(delta):
 				$VisualInstance/AnimationPlayer.play("Standing")
 	else:
 		stopping = false
-	
-	
+
+
 	if destinationPos.size() == 0:
-		if transitionToWagon: 
+		if transitionToWagon:
 			attachedStation.deregisterPerson(self)
 			attachedStation = null
 			transitionToWagon = false
@@ -65,10 +65,10 @@ func handleWalk(delta):
 			$VisualInstance/AnimationPlayer.play("Standing")
 
 		return
-	
+
 	if !$VisualInstance/AnimationPlayer.is_playing():
 		$VisualInstance/AnimationPlayer.play("Walking")
-	
+
 	if translation.distance_to(destinationPos[0]) < 0.1:
 		destinationPos.pop_front()
 		return
@@ -97,7 +97,7 @@ func deSpawn():
 		attachedStation.deregisterPerson(self)
 	if attachedWagon:
 		attachedWagon.deregisterPerson(self)
-		
+
 	queue_free()
 
 func clear_destinations():

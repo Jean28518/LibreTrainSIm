@@ -1,7 +1,7 @@
 tool
 extends Node
 
-# Get Next Position from a point on a circle after a specific Distance. 
+# Get Next Position from a point on a circle after a specific Distance.
 #Used for Building Rails, and driving on rail.
 ## Circle:
 func getNextPos(radius, pos, worldRot, distance):#  Vector3 position, float worldRot, float distance):
@@ -17,7 +17,7 @@ func getNextPos(radius, pos, worldRot, distance):#  Vector3 position, float worl
 #Used for Building Rails, and driving on rail.
 func getNextDeg(radius, worldRot, distance):
 	# Straight:
-	if radius == 0: 
+	if radius == 0:
 		return worldRot
 	# Curve:
 	var extend = radius * 2.0 * PI
@@ -37,10 +37,10 @@ func degreeToCoordinate(radius, pos, degree, worldRot):
 ## converts m/s to km/h
 func speedToKmH(speed):
 	return speed*3.6
-	
+
 func kmHToSpeed(speed):
 	return speed/3.6
-	
+
 func normDeg(degree):
 	while degree > 360.0:
 		degree -= 360.0
@@ -60,9 +60,9 @@ func angle_distance_deg(rot1, rot2) -> float:
 	return 180.0 - abs(abs(normed1 - normed2) - 180.0)
 
 
-func sort_signals(signalTable, forward = true): # Gets A Dict like {"name": [], "position" : []}, returns the array of the signal	
+func sort_signals(signalTable, forward = true): # Gets A Dict like {"name": [], "position" : []}, returns the array of the signal
 	var signalT = signalTable.duplicate(true)
-	var exportT = [] 
+	var exportT = []
 	for a in range(0, signalT["name"].size()):
 		var minimum = 0
 		for i in range(0, signalT["name"].size()):
@@ -100,4 +100,4 @@ func distance2String(distance):
 		return String((int(distance/100))*100) + " m"
 	else:
 		return String((int(distance-10)/10)*10) + " m"
-		
+

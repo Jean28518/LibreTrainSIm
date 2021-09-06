@@ -32,7 +32,7 @@ func _ready():
 
 	if get_game_volume() == null:
 		set_game_volume(1)
-	
+
 	if get_persons() == null:
 		set_persons(true)
 
@@ -136,24 +136,24 @@ func get_fog():
 
 func set_persons(value : bool):
 	jSaveManager.save_setting("persons", value)
-	
+
 func get_persons():
 	return jSaveManager.get_setting("persons", true)
-	
+
 
 func set_view_distance(value : int):
 	jSaveManager.save_setting("view_distance", value)
 
 func get_view_distance():
 	return jSaveManager.get_setting("view_distance", 1000)
-	
+
 
 func set_framedrop_fix(value : bool):
 	jSaveManager.save_setting("framedrop_fix", value)
-	
+
 func get_framedrop_fix():
 	return jSaveManager.get_setting("framedrop_fix", true)
-	
+
 
 ## Other Functionality #########################################################
 
@@ -165,15 +165,15 @@ func update_and_prepare_language_handling():
 		$ScrollContainer/GridContainer/Label7.hide()
 		$ScrollContainer/GridContainer/Language.hide()
 		return
-		
-	
+
+
 	# Prepare _language_table
 	language_codes.sort()
 	_language_table.clear()
 	for i in language_codes.size():
 		_language_table[language_codes[i]] = i
-		
-	# Prepare language 
+
+	# Prepare language
 	for index in range(_language_table.size()):
 		$ScrollContainer/GridContainer/Language.add_item("",index)
 	for language in _language_table.keys():

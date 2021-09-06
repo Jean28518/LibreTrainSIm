@@ -6,20 +6,20 @@ extends Node
 # 2: Other
 func play(soundPath : String, loop : bool = false, pausable : bool = true, volume_db : float = 0.0 , bus : String = "Game"):
 	var audioStreamPlayer = AudioStreamPlayer.new()
-	
+
 	if not resourceTable.has(soundPath) or resourceTable[soundPath] == null:
 		resourceTable[soundPath] = load(soundPath)
 		if resourceTable[soundPath] == null:
 			print_debug("jAudioManager: " + soundPath + " not found. Please give in a appropriate path beginning with res://")
 			return
-	
+
 	audioStreamPlayer.volume_db = volume_db
 	audioStreamPlayer.stream = resourceTable[soundPath].duplicate()
 	audioStreamPlayer.stream.loop = loop
-	
+
 	if jAudioManagerBus:
 		audioStreamPlayer.bus = bus
-		
+
 	if pausable:
 		audioStreamPlayer.pause_mode  = 1
 	else:
@@ -27,13 +27,13 @@ func play(soundPath : String, loop : bool = false, pausable : bool = true, volum
 	add_child(audioStreamPlayer)
 	audioStreamPlayer.owner = self
 	audioStreamPlayer.play()
-	
+
 	audioStreamPlayer.connect("finished", self, "queue_me_free", [audioStreamPlayer])
 
 func clear_all_sounds():
 	for child in get_children():
 		child.queue_free()
-		
+
 func play_music(soundPath : String, loop : bool = true, volume_db : float = 0.0):
 	play(soundPath, loop, false, volume_db, "Music")
 

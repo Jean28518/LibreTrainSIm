@@ -20,28 +20,28 @@ func _ready():
 	$Acceleration1.stream = load(acceleration_1_path)
 	$Acceleration2.stream = load(acceleration_2_path)
 	$AccelerationTransition.stream = load(acceleration_transition_path)
-	
+
 	$Idle.unit_db = -50
 	$Acceleration1.unit_db = -50
 	$Acceleration2.unit_db = -50
-	
+
 	$AccelerationTransition.stream.loop = false
-	
+
 var acceleration_timer = 0.0
 func _process(delta):
 	if player == null:
 		player = get_parent().player
-		return	
-	
+		return
+
 	if Input.is_key_pressed(KEY_K):
 		$AccelerationTransition.play(0)
-	
+
 	## Idle Engine:
 	if player.engine:
 		$Idle.unit_db = Root.clampViaTime(0, $Idle.unit_db, delta*2)
 	else:
 		$Idle.unit_db = Root.clampViaTime(-50, $Idle.unit_db, delta*2)
-		
+
 	## Accleration
 	### Main Volume of accleration
 	var sollAcceleration = -50
@@ -52,7 +52,7 @@ func _process(delta):
 			sollAcceleration = -30 + abs(player.command*30) - (Math.speedToKmH(player.speed)-60)/10.0
 #		if player.command < 0:
 #			sollAcceleration = sollAcceleration - 10.0
-	
+
 	### Control acceleration_sound_index
 	var speed = Math.speedToKmH(player.speed)
 	if speed > 10 and acceleration_sound_index == 1:
@@ -60,7 +60,7 @@ func _process(delta):
 		acceleration_timer = 0.0
 	if speed < 9 and acceleration_sound_index == 2:
 		acceleration_sound_index = 1
-	
+
 	### Acceleration Mixing:
 	if acceleration_sound_index == 1:
 		$Acceleration1.unit_db = Root.clampViaTime(0, $Acceleration1.unit_db, delta*2)
@@ -79,17 +79,17 @@ func _process(delta):
 		if acceleration_timer > acceleration_transition_length_in_ms/1000.0 + acceleration_transition_2_delta_length_in_ms/1000.0:
 			acceleration_sound_index = 2
 		acceleration_timer += delta
-	
+
 	$Acceleration1.unit_db = min(Root.clampViaTime(sollAcceleration, $Acceleration1.unit_db, delta*4), $Acceleration1.unit_db)
 	$Acceleration2.unit_db = min(sollAcceleration, $Acceleration2.unit_db)
 	$AccelerationTransition.unit_db = sollAcceleration
-	
+
 	### Pitching:
 	$Acceleration2.pitch_scale = 1.0 + (Math.speedToKmH(player.speed)-10.0)/300.0
 
-		
-		
-		
+
+
+
 	$Idle.stream_paused = not wagon.visible
 	$Acceleration1.stream_paused = not wagon.visible
 	$Acceleration2.stream_paused = not wagon.visible
@@ -113,7 +113,7 @@ func _process(delta):
 #		driveSoundDb = 10
 #	if player.speed == 0:
 #		driveSoundDb = -50.0
-#	$DriveSound.unit_db = Root.clampViaTime(driveSoundDb, $DriveSound.unit_db, delta) 
+#	$DriveSound.unit_db = Root.clampViaTime(driveSoundDb, $DriveSound.unit_db, delta)
 #
 #	var sollBreakSound = -50.0
 #	if not (player.speed >= 5 or player.command >= 0 or player.speed == 0):

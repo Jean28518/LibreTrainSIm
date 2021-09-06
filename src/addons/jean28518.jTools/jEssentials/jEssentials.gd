@@ -10,7 +10,7 @@ func call_delayed(delay : float, object : Object, method : String, arg_array : A
 
 
 func remove_all_pending_delayed_calls():
-	initialize_delayed_call_table()
+	delayed_call_table = {"delay" : [], "object" : [], "method" : [], "arg_array" : [] }
 
 
 func find_files_recursively(directory_path : String, file_extension : String):
@@ -60,7 +60,7 @@ func remove_duplicates(array : Array):
 			return_value.append(item)
 	return return_value
 
-var _saved_mouse_mode 
+var _saved_mouse_mode
 func show_message(message : String, title : String = ""):
 	var message_box = AcceptDialog.new()
 	message_box.dialog_text = message
@@ -82,12 +82,12 @@ func does_path_exist(path : String):
 	return dir.dir_exists(path) or dir.file_exists(path)
 
 
-func crawl_directory_for(directory_path : String,file_extension : String) -> Array: 
+func crawl_directory_for(directory_path : String,file_extension : String) -> Array:
 	var dir = Directory.new()
 	var found_files = {"Array" : []}
 	_crawl_directory_for_helper(directory_path, found_files, file_extension)
 	return found_files["Array"]
-	
+
 func get_subfolders_of(directory_path : String):
 	var dir = Directory.new()
 	if dir.open(directory_path) != OK: return
@@ -108,10 +108,6 @@ func get_subfolders_of(directory_path : String):
 
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
-	initialize_delayed_call_table()
-
-
-func initialize_delayed_call_table():
 	delayed_call_table = {"delay" : [], "object" : [], "method" : [], "arg_array" : [] }
 
 
@@ -121,7 +117,7 @@ func _process(delta):
 	_handle_delayed_calls(delta)
 
 
-var delayed_call_table
+var delayed_call_table := {"delay" : [], "object" : [], "method" : [], "arg_array" : [] }
 
 
 func _handle_delayed_calls(delta):
@@ -186,7 +182,7 @@ func _copy_folder_recursively_helper(from, to):
 
 func _crawl_directory_for_helper(directory_path : String, found_files : Dictionary, file_extension : String):
 	var dir = Directory.new()
-	if dir.open(directory_path) != OK: 
+	if dir.open(directory_path) != OK:
 		return
 	dir.list_dir_begin()
 	while(true):
@@ -200,7 +196,7 @@ func _crawl_directory_for_helper(directory_path : String, found_files : Dictiona
 				_crawl_directory_for_helper(directory_path+"/"+file, found_files, file_extension)
 		else:
 			if file.get_extension() == file_extension:
-				var export_string 
+				var export_string
 				if directory_path.ends_with("/"):
 					export_string = directory_path + file
 				else:

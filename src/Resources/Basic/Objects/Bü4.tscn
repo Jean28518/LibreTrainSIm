@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Basic/Textures/bü4.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Basic/Materials/Metal.tres" type="Material" id=2]
+[ext_resource path="res://Resources/Basic/Objects/bü4.mesh" type="ArrayMesh" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 1 )
+metallic_specular = 0.0
+
+[node name="Bü4" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = ExtResource( 3 )
+material/0 = ExtResource( 2 )
+material/1 = SubResource( 1 )

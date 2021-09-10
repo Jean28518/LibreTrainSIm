@@ -29,7 +29,7 @@ signal speed_changed(new_speed)
 
 export var is_block_signal = false setget on_update_block_signal_setting
 
-export var visual_instance_path = "res://Resources/Basic/SignalTypes/Default/Default.tscn"
+export var visual_instance_path = "res://Resources/Basic/SignalTypes/Ks/Ks.tscn"
 export (String) var attached_rail # Internal. Never change this via script.
 var attached_rail_node
 export var forward = true # Internal. Never change this via script.
@@ -63,7 +63,7 @@ func create_visual_instance():
 	if visual_instance_path != "":
 		visual_instance_resource = load(visual_instance_path)
 	if visual_instance_resource == null:
-		visual_instance_resource = preload("res://Resources/Basic/SignalTypes/Default/Default.tscn")
+		visual_instance_resource = preload("res://Resources/Basic/SignalTypes/Ks/Ks.tscn")
 	var visual_instance = visual_instance_resource.instance()
 	add_child(visual_instance)
 	visual_instance.name = "VisualInstance"

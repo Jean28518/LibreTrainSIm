@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Basic/Materials/Metal.tres" type="Material" id=1]
+[ext_resource path="res://Resources/Basic/Objects/Ne3_Small.mesh" type="ArrayMesh" id=2]
+[ext_resource path="res://Resources/Basic/Textures/ne3_250m_small.png" type="Texture" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 3 )
+
+[node name="Ne3" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.667 )
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 1 )
+material/1 = SubResource( 1 )

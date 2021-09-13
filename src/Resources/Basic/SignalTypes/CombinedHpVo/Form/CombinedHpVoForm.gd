@@ -16,7 +16,7 @@ func update_status(instance):
 	if instance.status == SignalStatus.RED:
 		hp_anim_fsm.travel("Hp0")  # Halt
 	else:
-		if instance.speed > 0:
+		if instance.speed > 0 and instance.speed <= 60:
 			hp_anim_fsm.travel("Hp2")  # Langsamfahrt
 		else:
 			hp_anim_fsm.travel("Hp1")  # Fahrt
@@ -25,7 +25,7 @@ func update_status(instance):
 		if instance.signal_after_node.status == SignalStatus.RED:
 			vo_anim_fsm.travel("Vr0")  # Halt erwarten
 		else:
-			if instance.signal_after_node.speed > 0:
+			if instance.signal_after_node.speed > 0 and instance.signal_after_node.speed <= 60:
 				vo_anim_fsm.travel("Vr2")  # Langsamfahrt erwarten
 			else:
 				vo_anim_fsm.travel("Vr1")  # Fahrt erwarten

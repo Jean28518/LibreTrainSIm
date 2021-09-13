@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Vo-Sig.obj-e2c077a51b7ae402f81b7d8a05c7bc3d.mesh"
+
+[deps]
+
+files=[ "res://.import/Vo-Sig.obj-e2c077a51b7ae402f81b7d8a05c7bc3d.mesh" ]
+
+source_file="res://Resources/Basic/SignalTypes/Vo/Light/Vo-Sig.obj"
+dest_files=[ "res://.import/Vo-Sig.obj-e2c077a51b7ae402f81b7d8a05c7bc3d.mesh", "res://.import/Vo-Sig.obj-e2c077a51b7ae402f81b7d8a05c7bc3d.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

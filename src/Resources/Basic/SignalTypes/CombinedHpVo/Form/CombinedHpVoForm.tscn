@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Resources/Basic/SignalTypes/CombinedHpVo/Form/CombinedHpVo.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Basic/SignalTypes/CombinedHpVo/Form/CombinedHpVoForm.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Basic/SignalTypes/Vo/Form/VoForm.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Resources/Basic/SignalTypes/Hp/Form/HpForm.tscn" type="PackedScene" id=3]
 

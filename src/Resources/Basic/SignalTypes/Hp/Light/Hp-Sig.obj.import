@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Hp-Sig.obj-5e269975dc348685a88256394cc30c43.mesh"
+
+[deps]
+
+files=[ "res://.import/Hp-Sig.obj-5e269975dc348685a88256394cc30c43.mesh" ]
+
+source_file="res://Resources/Basic/SignalTypes/Hp/Light/Hp-Sig.obj"
+dest_files=[ "res://.import/Hp-Sig.obj-5e269975dc348685a88256394cc30c43.mesh", "res://.import/Hp-Sig.obj-5e269975dc348685a88256394cc30c43.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/HpVo-Sig.obj-d3c63173eca3db9ee1af508287249f92.mesh"
+
+[deps]
+
+files=[ "res://.import/HpVo-Sig.obj-d3c63173eca3db9ee1af508287249f92.mesh" ]
+
+source_file="res://Resources/Basic/SignalTypes/CombinedHpVo/Light/HpVo-Sig.obj"
+dest_files=[ "res://.import/HpVo-Sig.obj-d3c63173eca3db9ee1af508287249f92.mesh", "res://.import/HpVo-Sig.obj-d3c63173eca3db9ee1af508287249f92.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

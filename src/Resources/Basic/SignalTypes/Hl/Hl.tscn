@@ -1,0 +1,282 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Resources/Basic/Textures/KS-Signal.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Basic/SignalTypes/Hl/Hl-Sig.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://Resources/Basic/SignalTypes/Hl/Hl.gd" type="Script" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+params_cull_mode = 2
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 1, 0.658824, 0.00392157, 1 )
+emission_enabled = true
+emission = Color( 1, 0.513726, 0, 1 )
+emission_energy = 1.87
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=3]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.992157, 0.658824, 0.027451, 1 )
+emission_enabled = true
+emission = Color( 1, 0.843137, 0, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+distance_fade_mode = 1
+distance_fade_min_distance = 70.0
+distance_fade_max_distance = 200.0
+
+[sub_resource type="SphereMesh" id=5]
+radius = 0.3
+height = 0.6
+radial_segments = 6
+rings = 3
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.00392157, 1, 0.0196078, 1 )
+emission_enabled = true
+emission = Color( 0.196078, 1, 0, 1 )
+emission_energy = 1.87
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.0588235, 0.992157, 0.027451, 1 )
+emission_enabled = true
+emission = Color( 0, 1, 0.0392157, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+distance_fade_mode = 1
+distance_fade_min_distance = 70.0
+distance_fade_max_distance = 200.0
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 1, 0.00392157, 0.00392157, 1 )
+emission_enabled = true
+emission = Color( 1, 0, 0, 1 )
+emission_energy = 16.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SphereMesh" id=9]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_color = Color( 0.992157, 0.0941176, 0.027451, 1 )
+emission_enabled = true
+emission = Color( 1, 0, 0, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+distance_fade_mode = 1
+distance_fade_min_distance = 70.0
+distance_fade_max_distance = 200.0
+
+[sub_resource type="SphereMesh" id=11]
+radius = 0.3
+height = 0.6
+radial_segments = 6
+rings = 3
+
+[node name="VisualInstance" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.667 )
+material_override = SubResource( 1 )
+mesh = ExtResource( 2 )
+material/0 = null
+material/1 = null
+
+[node name="Orange2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.098472, 3.58718, 1.85742 )
+material_override = SubResource( 2 )
+cast_shadow = 0
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="Orange2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+material_override = SubResource( 4 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Orange1" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.098472, 4.21936, 1.85742 )
+material_override = SubResource( 2 )
+cast_shadow = 0
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="Orange1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+material_override = SubResource( 4 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Green1" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0964804, 4.21856, 2.07726 )
+material_override = SubResource( 6 )
+cast_shadow = 0
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="Green1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+material_override = SubResource( 7 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Red" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0979431, 3.90113, 1.96757 )
+material_override = SubResource( 8 )
+cast_shadow = 0
+mesh = SubResource( 9 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="Red"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+material_override = SubResource( 10 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="GreenStripe" type="Spatial" parent="."]
+
+[node name="Green1" type="MeshInstance" parent="GreenStripe"]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.0964804, 3.33877, 1.77063 )
+material_override = SubResource( 6 )
+cast_shadow = 0
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="GreenStripe/Green1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+material_override = SubResource( 7 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Green2" type="MeshInstance" parent="GreenStripe"]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.0964804, 3.33877, 1.87091 )
+material_override = SubResource( 6 )
+cast_shadow = 0
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="GreenStripe/Green2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+material_override = SubResource( 7 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Green3" type="MeshInstance" parent="GreenStripe"]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.0964804, 3.33877, 1.9712 )
+material_override = SubResource( 6 )
+cast_shadow = 0
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="GreenStripe/Green3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+material_override = SubResource( 7 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Green4" type="MeshInstance" parent="GreenStripe"]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.0964804, 3.33877, 2.07089 )
+material_override = SubResource( 6 )
+cast_shadow = 0
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="GreenStripe/Green4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+material_override = SubResource( 7 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Green5" type="MeshInstance" parent="GreenStripe"]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.0964804, 3.33877, 2.17117 )
+material_override = SubResource( 6 )
+cast_shadow = 0
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="GreenStripe/Green5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+material_override = SubResource( 7 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="OrangeStripe" type="Spatial" parent="."]
+
+[node name="Orange1" type="MeshInstance" parent="OrangeStripe"]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.098472, 3.2067, 1.77121 )
+material_override = SubResource( 2 )
+cast_shadow = 0
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="OrangeStripe/Orange1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+material_override = SubResource( 4 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Orange2" type="MeshInstance" parent="OrangeStripe"]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.098472, 3.2067, 1.87094 )
+material_override = SubResource( 2 )
+cast_shadow = 0
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="OrangeStripe/Orange2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+material_override = SubResource( 4 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Orange3" type="MeshInstance" parent="OrangeStripe"]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.098472, 3.2067, 1.97067 )
+material_override = SubResource( 2 )
+cast_shadow = 0
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="OrangeStripe/Orange3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+material_override = SubResource( 4 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Orange4" type="MeshInstance" parent="OrangeStripe"]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.098472, 3.2067, 2.0704 )
+material_override = SubResource( 2 )
+cast_shadow = 0
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="OrangeStripe/Orange4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+material_override = SubResource( 4 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Orange5" type="MeshInstance" parent="OrangeStripe"]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.098472, 3.2067, 2.17013 )
+material_override = SubResource( 2 )
+cast_shadow = 0
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="OrangeStripe/Orange5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+material_override = SubResource( 4 )
+mesh = SubResource( 5 )
+material/0 = null
